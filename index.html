@@ -7176,7 +7176,7 @@ renderQ3();
   <div class="br-wrap br-hero" id="br-p2day3">
     <span class="br-eyebrow">Boot Camp Part 2 — Day 3</span>
     <h1>Bitcoin yield on <span>Stacks:</span> bonds, Xverse and StackingDAO.</h1>
-    <p>Day 2 taught you to read the market. Today we put Bitcoin to work without handing over the keys. You will learn the network underneath (Stacks and Proof of Transfer), the Bitcoin-backed token (sBTC), the new Bitcoin Staking bonds, and the two doors into them: the Xverse wallet and the StackingDAO liquid staking protocol. Then you will run the numbers yourself and learn the risks before any Bitcoin goes in.</p>
+    <p>Day 2 taught you to read the market. Today we put Bitcoin to work without handing over the keys. You will learn the network underneath (Stacks and Proof of Transfer), the Bitcoin-backed token (sBTC), the new Bitcoin Staking bonds, and the two doors into them: the Xverse wallet and the StackingDAO liquid staking protocol. Then we go deeper on two things that just changed: the new <b>Xverse Multisig Vault</b> (shared control of Bitcoin, Stacks and Starknet assets with up to 20 co-owners) and StackingDAO's <b>always-open stBTC</b>, plus the <b>Stacks DeFi incentive program</b> that pays BTC to Zest borrowers and Bitflow liquidity providers. You will run the numbers yourself and learn the risks before any Bitcoin goes in.</p>
     <div class="br-meta-row">
       <span class="br-meta-item">Session <b>3</b></span>
       <span class="br-meta-item">Duration <b>2 Hours</b></span>
@@ -7212,6 +7212,8 @@ renderQ3();
         <div class="br-obj-item"><span class="br-n">03</span><p>Explain a Bitcoin Staking protocol bond: the term, the 5% STX requirement, the waterfall and the early-exit rules.</p></div>
         <div class="br-obj-item"><span class="br-n">04</span><p>Compare three paths (native BTC bond, Xverse sBTC pool, StackingDAO stBTC) and run the numbers, including the effect of an STX price move.</p></div>
         <div class="br-obj-item"><span class="br-n">05</span><p>Run a seven-question due-diligence check on a Bitcoin DeFi app and name the risks at every layer.</p></div>
+        <div class="br-obj-item"><span class="br-n">06</span><p>Design a Multisig Vault for a family, business or nonprofit: pick the threshold, assign the keys and write the recovery plan.</p></div>
+        <div class="br-obj-item"><span class="br-n">07</span><p>Explain StackingDAO's November upgrades and estimate a pro-rata share of the Stacks BTC incentive program.</p></div>
       </div>
     </div>
   </section>
@@ -7415,11 +7417,14 @@ renderQ3();
 <h4>Bond rounds so far</h4>
 <table class="br-p2t">
 <tr><th>Bond</th><th>What was reported</th></tr>
-<tr><td><b>Genesis Bond (Bond 1)</b></td><td>Deposit window opened around Sept 1, 2026. Started around Sept 10 at Bitcoin block 966,350 (reward cycle 143). StackingDAO's capacity was fully allocated</td></tr>
-<tr><td><b>Bond 2</b></td><td>StackingDAO reported it <b>paid 1.21 BTC in its first 30 days</b> (Nov 16)</td></tr>
+<tr><td><b>Genesis Bond (Bond 1)</b></td><td>Deposit window opened around Sept 1, 2026. Started around Sept 10 at Bitcoin block 966,350 (reward cycle 143). <b>Sold out with 230 BTC enrolled.</b> Anchor participants included UTXO Management, 21Shares and HashKey Cloud. StackingDAO's capacity was fully allocated</td></tr>
+<tr><td><b>Bond 2</b></td><td>Announced Oct 5 with <b>500 BTC of capacity</b>. Locked around Oct 8 and began earning around Oct 10. It filled with about <b>505 BTC</b>, and <b>most of the capacity went through StackingDAO</b>. StackingDAO reported it <b>paid 1.21 BTC in its first 30 days</b> (Nov 16)</td></tr>
 <tr><td><b>Bond 3</b></td><td><b>Sold out.</b> StackingDAO named <b>21Shares</b> and <b>Bullish</b> among the participants (Nov 9). Institutions are in the game</td></tr>
 <tr><td><b>Round 4</b></td><td>Xverse was taking <b>reservations</b> so you are whitelisted when the next staking window opens (Nov 5)</td></tr>
 </table>
+<h4>Worked example: what Bond 2's first month tells you</h4>
+<p>About <b>505 BTC</b> earned about <b>1.21 BTC</b> in 30 days. That is 1.21 ÷ 505 ≈ <b>0.24% for the month</b>. Multiply by about 12.2 months a year and you get roughly <b>2.9% a year</b>, very close to the ~3% target. On 0.5 BTC, that month would have paid about 0.5 × 0.0024 ≈ <b>0.0012 BTC</b>. This is the kind of check you should do on every headline: take the reported payout, divide by what was enrolled, and annualize it. (One month is a small sample. Miner bids change.)</p>
+<div class="br-callout"><span class="br-tag">Bonds are getting bigger</span><p>Genesis: 230 BTC. Bond 2: about 505 BTC. Bond 3: sold out with institutions such as 21Shares and Bullish. Stacks says custody providers like Anchorage Digital are finishing staking integrations, and bond sizes are meant to inform the open, auction-based model planned for PoX-6. More institutional BTC competing for the same miner rewards can <b>push the yield per BTC down</b>, so watch the rate as capacity grows.</p></div>
 <div class="br-callout"><span class="br-tag">Teaching note</span><p>"Bond 3" (StackingDAO) and "Round 4" (Xverse) are best read as consecutive monthly bond windows. Confirm exact dates in each app before you tell anyone a deadline.</p></div>
 
 <h4>Common mistakes</h4>
@@ -7457,27 +7462,97 @@ renderQ3();
 <h4>What else Xverse shipped in November 2026</h4>
 <table class="br-p2t">
 <tr><th>Date</th><th>Feature</th><th>What it does</th></tr>
-<tr><td>Nov 16</td><td><b>Multisig</b> (extension)</td><td>Joint Bitcoin accounts with up to 20 co-owners. Nothing moves until enough of them approve, such as 2-of-3 or 3-of-5</td></tr>
+<tr><td>Nov 16</td><td><b>Multisig Vault</b> (browser extension)</td><td>A shared vault with up to <b>20 co-owners</b>. One vault holds <b>Bitcoin, Stacks and Starknet</b> assets. Nothing moves until the number of approvals you set is reached, such as 2-of-3 or 3-of-5. Full deep dive below</td></tr>
 <tr><td>Nov 12</td><td><b>Lightning payments</b></td><td>Scan a Lightning QR code and the payment settles in seconds, with no waiting for block confirmations</td></tr>
 <tr><td>Nov 11</td><td><b>Bitcoin perps</b></td><td>Trade perpetual futures long or short inside the app, so you can hedge without selling your savings</td></tr>
 <tr><td>Nov 10</td><td><b>Bank details in 5 currencies</b></td><td>Your own details in EUR, USD, GBP, BRL and MXN. A bank transfer lands as USDC in a vault only you control. No exchange account is needed</td></tr>
 <tr><td>Nov 9</td><td><b>Recurring buys (DCA)</b></td><td>A fixed buy on a schedule with Apple Pay, a debit card or bank transfer, straight into self-custody</td></tr>
 </table>
 <div class="br-callout"><span class="br-tag">BWS connection</span><p>Multisig fits the family-bank and structure lessons. A family trust or LLC can hold BTC in a multisig, so <b>no single family member (or thief) can move it alone</b>.</p></div>
+
+<h4>Deep dive: the Xverse Multisig Vault</h4>
+<p>Xverse announced <b>Multisig</b> on its browser extension on <b>November 16, 2026</b>. A normal wallet is <b>single-signature</b>: one seed phrase, one person, full control. A multisig vault is <b>shared control</b>. You choose who the co-owners are and how many of them must approve before anything leaves the vault. Xverse lets one vault have <b>up to 20 co-owners</b>, and that one vault can hold <b>Bitcoin, Stacks (STX, sBTC and Stacks tokens) and Starknet</b> assets together.</p>
+<div class="br-callout"><span class="br-tag">The one-sentence version</span><p>A multisig vault is a safe that needs <b>more than one key turned at the same time</b>. Losing one key does not lose the money, and stealing one key does not steal it.</p></div>
+
+<h4>The words you need: M-of-N</h4>
+<p>Every multisig is described as <b>M-of-N</b>. <b>N</b> is how many co-owners (keys) there are. <b>M</b> is how many must approve a transaction. A 2-of-3 vault has three co-owners and needs any two of them to sign.</p>
+<table class="br-p2t">
+<tr><th>Setup</th><th>Keys that can be lost and still recover</th><th>Keys a thief needs</th><th>Good for</th></tr>
+<tr><td><b>1-of-1</b> (normal wallet)</td><td>0</td><td>1</td><td>Small, everyday spending</td></tr>
+<tr><td><b>2-of-2</b></td><td>0. Lose one and the funds are stuck</td><td>2</td><td>Rarely a good idea. No room for a lost key</td></tr>
+<tr><td><b>2-of-3</b></td><td>1</td><td>2</td><td>Families and individuals with serious savings. The most common setup</td></tr>
+<tr><td><b>3-of-5</b></td><td>2</td><td>3</td><td>LLCs, partnerships, nonprofits with a board</td></tr>
+<tr><td><b>4-of-7</b> and up</td><td>3</td><td>4</td><td>Larger boards or treasuries where no small group should act alone</td></tr>
+</table>
+<p>The rule of thumb: <b>M should be more than half of N, and N minus M should be at least 1</b>. That way you can survive a lost key and no single person can act alone.</p>
+
+<h4>How a vault works, step by step</h4>
+<ol>
+ <li><b>Each co-owner gets their own wallet.</b> Every co-owner has their own key that they back up themselves. Nobody holds anyone else's seed phrase.</li>
+ <li><b>The creator sets up the vault</b> in the Xverse extension: adds the co-owners' addresses and chooses the threshold (M).</li>
+ <li><b>Everyone checks the vault address</b> against what their own wallet shows before any money goes in.</li>
+ <li><b>Fund it with a test amount first.</b> Send a small amount in, then practise a full withdrawal with the required number of approvals.</li>
+ <li><b>To spend:</b> one co-owner proposes a transaction. It stays <b>blocked</b> until enough co-owners approve. Then it is sent.</li>
+</ol>
+<div class="br-callout"><span class="br-tag">Instructor to confirm live</span><p>The steps above describe how multisig works in general and what Xverse announced. Open the extension in class and walk the real screens, because the exact buttons and wording may differ. Xverse had not said at launch whether <b>hardware wallets</b> can be co-owners, whether the feature is coming to <b>mobile</b>, or what the <b>fees</b> are. Check before you teach those as facts.</p></div>
+
+<h4>Who should hold the keys</h4>
+<table class="br-p2t">
+<tr><th>Do</th><th>Don't</th></tr>
+<tr><td>Give each key to a different person or keep it in a different place</td><td>Keep two keys on the same phone or in the same drawer. That turns 2-of-3 into 1-of-1</td></tr>
+<tr><td>Include one "cold" backup key that is rarely used and stored safely</td><td>Make every key a hot phone wallet that is online all the time</td></tr>
+<tr><td>Write down who holds which key, without writing the seed phrases themselves in the same place</td><td>Let one person know every seed phrase "just in case"</td></tr>
+<tr><td>Agree in writing what happens if a co-owner dies, leaves or loses their key</td><td>Wait until something goes wrong to decide</td></tr>
+</table>
+
+<h4>Where it fits in the BWS playbook</h4>
+<table class="br-p2t">
+<tr><th>Use case</th><th>Suggested setup</th><th>Why</th></tr>
+<tr><td><b>Family Bitcoin bank / family trust</b></td><td>2-of-3: parent, adult child, trusted advisor or cold backup</td><td>No single family member (or thief) can move the family's BTC alone, and one lost phone does not lose it</td></tr>
+<tr><td><b>LLC treasury</b> (like Block Wall Street LLC)</td><td>2-of-3 or 3-of-5 among the members or managers</td><td>Business funds need more than one approval, which matches how a company bank account with two signers works</td></tr>
+<tr><td><b>Nonprofit treasury</b> (like B4OF)</td><td>3-of-5 among board members</td><td>Donor funds should never depend on one person. It also builds trust with donors and auditors</td></tr>
+<tr><td><b>Personal savings</b></td><td>2-of-3 across your phone, a second device and a cold backup</td><td>Protects you from a hacked phone or a lost seed phrase</td></tr>
+</table>
+<div class="br-callout"><span class="br-tag">Why one vault for three chains matters</span><p>A family or business that holds BTC, sBTC or stBTC on Stacks, and assets on Starknet, can now put them <b>under the same rules in one place</b>. Before, each chain usually needed its own setup and its own signers. Fewer setups means fewer mistakes.</p></div>
+
+<h4>Multisig vs single-sig vs an exchange</h4>
+<table class="br-p2t">
+<tr><th></th><th>Exchange account</th><th>Single-sig wallet</th><th>Multisig vault</th></tr>
+<tr><td>Who controls the coins</td><td>The exchange</td><td>You alone</td><td>You and your co-owners, by the rule you set</td></tr>
+<tr><td>One stolen password or seed</td><td>Depends on the exchange</td><td>Funds gone</td><td>Funds safe if the thief has fewer than M keys</td></tr>
+<tr><td>One lost seed</td><td>Account recovery through support</td><td>Funds gone</td><td>Funds safe if you still have M keys</td></tr>
+<tr><td>Speed to spend</td><td>Fast</td><td>Fast</td><td>Slower: others must approve</td></tr>
+<tr><td>Hardest part</td><td>Trusting the company</td><td>Guarding one seed phrase</td><td>Coordinating people and keeping a written plan</td></tr>
+</table>
 <div class="br-callout br-case"><span class="br-tag">Caution</span><p>Perps use leverage and can be liquidated. They are a <b>trading tool</b>, not a savings tool, and they are separate from staking. We teach accumulation first.</p></div>
 
 <h4>Worked example: a 2-of-3 family multisig</h4>
 <p>A family holds BTC in a 2-of-3 account with keys held by a parent, an adult child and a trusted advisor. To move funds, <b>any two</b> must sign. If one phone is lost, the other two can still move the money. If one person is compromised, a thief with a single key gets nothing. The trade-off: you now need to <b>keep three keys safe</b> and agree on a plan for what happens if two are lost.</p>
+
+<h4>Worked example: a 3-of-5 nonprofit treasury</h4>
+<p>A nonprofit holds <b>0.5 BTC</b> and some sBTC in a 3-of-5 vault. The five co-owners are the board chair, treasurer, secretary, one board member and a cold backup key kept in a safe-deposit box.</p>
+<table class="br-p2t">
+<tr><th>What happens</th><th>Keys left</th><th>Can funds move?</th></tr>
+<tr><td>The treasurer proposes paying a $2,000 program expense</td><td>5</td><td>Only after two more co-owners approve (3 of 5)</td></tr>
+<tr><td>The secretary loses her phone and seed</td><td>4</td><td><b>Yes.</b> Three of the remaining four can still sign. Move funds to a new vault with a fresh key for her</td></tr>
+<tr><td>A hacker steals the chair's key</td><td>4 good + 1 stolen</td><td><b>The hacker can't move anything.</b> They would need two more keys. Rotate to a new vault right away</td></tr>
+<tr><td>Two board members leave on bad terms the same month</td><td>3 cooperative</td><td>Yes, but with no room for error. <b>Rotate to a new vault</b> with the new board now</td></tr>
+</table>
+<p>The lesson: multisig protects you from <b>one</b> bad event. It does not protect you from ignoring a bad event. Every lost or compromised key is a signal to <b>rotate</b>, which means making a new vault and moving the funds.</p>
 
 <h4>Common mistakes</h4>
 <ul>
  <li><b>Thinking "self-custody" means "no risk."</b> You still carry bond, sBTC signer and smart contract risk.</li>
  <li><b>Missing the STX top-up deadline.</b> Top-ups are only allowed before the bond starts.</li>
  <li><b>Mixing perps with savings.</b> Keep leverage away from the stack you are staking.</li>
+ <li><b>Keeping two multisig keys in one place.</b> Two keys on one phone means one stolen phone can empty a 2-of-3 vault.</li>
+ <li><b>Choosing 2-of-2 or N-of-N.</b> With no spare key, one lost seed locks the funds forever.</li>
+ <li><b>No written recovery plan.</b> Decide now who replaces a co-owner who dies, leaves or loses a key.</li>
+ <li><b>Skipping the test withdrawal.</b> Prove the group can actually sign and send before the real money goes in.</li>
 </ul>
 
 <h4>Do it</h4>
-<div class="br-steps-mini"><div class="br-step-mini"><span class="br-dot"></span><p>Open the Xverse site and find the staking page. Write down the current target APY and the next window.</p></div><div class="br-step-mini"><span class="br-dot"></span><p>Find where Xverse says rewards are paid and in what asset.</p></div><div class="br-step-mini"><span class="br-dot"></span><p>Draw a 2-of-3 multisig for a real or imaginary family and note who holds each key.</p></div></div><div class="br-toolbar"><a class="br-jump-btn" target="_blank" rel="noopener" href="https://www.xverse.app/blog/sbtc-staking-explained">Xverse: sBTC Staking Explained ↗</a></div><div class="br-callout"><span class="br-tag">Instructor Note</span><p>Do not ask students to stake live in class. Walk the flow on the projector, stop before the confirm button, and ask what each screen is telling you to trust.</p></div>
+<div class="br-steps-mini"><div class="br-step-mini"><span class="br-dot"></span><p>Open the Xverse site and find the staking page. Write down the current target APY and the next window.</p></div><div class="br-step-mini"><span class="br-dot"></span><p>Find where Xverse says rewards are paid and in what asset.</p></div><div class="br-step-mini"><span class="br-dot"></span><p>Draw a 2-of-3 multisig for a real or imaginary family and note who holds each key.</p></div><div class="br-step-mini"><span class="br-dot"></span><p>Write a one-paragraph recovery plan for that vault: what happens if one co-owner loses a key, and what happens if a co-owner dies.</p></div><div class="br-step-mini"><span class="br-dot"></span><p>Open the Xverse extension and find where Multisig lives. Note what it asks you to choose, without creating a vault with real funds.</p></div></div><div class="br-toolbar"><a class="br-jump-btn" target="_blank" rel="noopener" href="https://www.xverse.app/blog/sbtc-staking-explained">Xverse: sBTC Staking Explained ↗</a></div><div class="br-callout"><span class="br-tag">Instructor Note</span><p>Do not ask students to stake live in class. Walk the flow on the projector, stop before the confirm button, and ask what each screen is telling you to trust.</p></div>
       <div class="br-p2q" data-sec="xverse"></div>
     </div>
   </section>
@@ -7510,6 +7585,36 @@ renderQ3();
 <tr><td>Nov 12</td><td>A post-quantum stBTC was teased as "next." There were no details yet</td></tr>
 </table>
 <p>These are the project's own figures, posted by StackingDAO. Treat them as claims to check, not as audited results.</p>
+
+<h4>The November upgrades, explained</h4>
+<p>In a <b>November 3</b> recap, StackingDAO listed three changes that make stBTC easier to use. Each one changes how you plan.</p>
+<table class="br-p2t">
+<tr><th>Upgrade</th><th>Before</th><th>Now</th><th>Why it matters to you</th></tr>
+<tr><td><b>stBTC always open</b></td><td>You waited for a bond deposit window, and capacity could sell out</td><td>stBTC is <b>permanently open for deposits</b>. StackingDAO handles getting into bonds</td><td>No more racing a window. You can <b>dollar-cost average</b> into stBTC on your own schedule</td></tr>
+<tr><td><b>BTC rewards straight to your wallet</b></td><td>Rewards had to be claimed</td><td>Rewards are paid <b>straight to your Bitcoin wallet</b> with no claim step. You can switch to payouts in <b>sBTC on Stacks</b> at any time</td><td>Nothing to forget. Choose BTC if you want rewards on Bitcoin itself, or sBTC if you plan to use them in Stacks apps</td></tr>
+<tr><td><b>Analytics in the app</b></td><td>You pieced numbers together from posts</td><td>New analytics data shown <b>directly on the platform</b></td><td>Check the real yield, payouts and totals yourself instead of trusting a screenshot</td></tr>
+</table>
+
+<h4>Worked example: the cost of waiting for a window</h4>
+<p>Say you have <b>0.2 BTC</b> ready and the next bond window is <b>3 weeks</b> away. At a 2.4% yearly yield, 3 weeks of earning is 2.4% × 3 ÷ 52 ≈ <b>0.14%</b>, about <b>0.00028 BTC</b>. That is small, but if the window then sells out before you get in, you may wait another month. Always-open deposits remove that timing risk. The trade-off is the slightly lower yield than a direct bond (see below).</p>
+
+<h4>Worked example: DCA into stBTC</h4>
+<p>Because deposits are always open, you can treat stBTC like a savings plan. Put in <b>$100 of BTC every week</b>. After a year you have deposited $5,200. If the yield stays near 2.4% and is paid daily, your BTC earnings are roughly half a year's yield on the average balance: about 2.4% × $5,200 ÷ 2 ≈ <b>$62 worth of BTC</b>, before any change in BTC's price. The yield is the bonus. The main engine is still <b>accumulating BTC</b>. (Illustrative. Check the live rate.)</p>
+
+<h4>Using stBTC as collateral: the Zest borrow</h4>
+<p>Reports on Bond 2 point out that you can pledge <b>stBTC on Zest</b> to borrow USDC while the BTC underneath keeps earning. This is the Day 1 collateral lesson on a Bitcoin layer.</p>
+<table class="br-p2t">
+<tr><th>Step</th><th>Numbers (illustrative)</th></tr>
+<tr><td>Deposit stBTC as collateral</td><td>0.2 BTC worth of stBTC at $74,000 = <b>$14,800</b></td></tr>
+<tr><td>Liquidation threshold (check the real one in Zest)</td><td>70%, so you could borrow up to $10,360 before liquidation</td></tr>
+<tr><td>Borrow conservatively</td><td><b>$3,000</b> USDC, about 20% of the collateral value</td></tr>
+<tr><td>Health factor</td><td>(14,800 × 0.70) ÷ 3,000 ≈ <b>3.45</b></td></tr>
+<tr><td>BTC price that triggers liquidation</td><td>3,000 ÷ (0.2 × 0.70) ≈ <b>$21,400</b>, a fall of about 71%</td></tr>
+</table>
+<p>At 20% borrowed you have a lot of room. At 50% borrowed ($7,400), liquidation would start near BTC <b>$52,900</b>, only about a 29% drop. Same app, same collateral, very different risk. Remember too that stBTC can trade below its backing in a panic, and if the lending market values it lower, your health factor drops even if BTC does not.</p>
+
+<h4>What's next: more incentives</h4>
+<p>StackingDAO has posted that <b>"DeFi incentives are coming to Stacks"</b> and has covered where the rewards are going on its weekly Stacks DeFi show. It also teased a <b>post-quantum stBTC</b>. No details were public at the time of writing. When the incentives launch, run them through the same questions: <b>what do I have to do to qualify, what is paid, in what token, for how long, and what new risk am I taking to get it?</b></p>
 
 <h4>Why the yield is a bit lower than 3%</h4>
 <p>The direct bond route targets about 3%. stBTC shows about 2.3–2.4%. The gap comes from:</p>
@@ -7546,10 +7651,12 @@ renderQ3();
  <li><b>Assuming 1:1 forever.</b> The receipt token is a market price, not a promise of instant exit.</li>
  <li><b>Treating "no STX needed" as "no risk."</b> You removed the STX price risk. You added protocol and liquidity risk.</li>
  <li><b>Layering without a plan.</b> Each extra layer adds a new way to lose money. Know your exit for each one.</li>
+ <li><b>Borrowing the maximum against stBTC.</b> Keep the loan small so a BTC drop or a stBTC discount doesn't liquidate you.</li>
+ <li><b>Sending sBTC rewards to a wallet you don't watch.</b> If you switch payouts to sBTC, make sure you know which Stacks address receives them.</li>
 </ul>
 
 <h4>Do it</h4>
-<div class="br-steps-mini"><div class="br-step-mini"><span class="br-dot"></span><p>Open stackingdao.com and list every product shown today.</p></div><div class="br-step-mini"><span class="br-dot"></span><p>Find the fee schedule and audit links. Note who audited it and when.</p></div><div class="br-step-mini"><span class="br-dot"></span><p>Compute your net yield on $10,000 using the advertised rate and the fee, then compare that with doing nothing.</p></div></div><div class="br-toolbar"><a class="br-jump-btn" target="_blank" rel="noopener" href="https://www.stackingdao.com/">Open StackingDAO ↗</a><a class="br-jump-btn br-back" target="_blank" rel="noopener" href="https://docs.stackingdao.com/stackingdao/the-stacking-dao-app/frequently-asked-questions">StackingDAO Docs FAQ ↗</a></div><div class="br-callout"><span class="br-tag">Instructor Note</span><p>Ask: "If a receipt token is worth 1% less than the thing it claims to represent, is that a bug or a feature?" It is the market telling you how much people value getting out now.</p></div>
+<div class="br-steps-mini"><div class="br-step-mini"><span class="br-dot"></span><p>Open stackingdao.com and list every product shown today.</p></div><div class="br-step-mini"><span class="br-dot"></span><p>Find the fee schedule and audit links. Note who audited it and when.</p></div><div class="br-step-mini"><span class="br-dot"></span><p>Compute your net yield on $10,000 using the advertised rate and the fee, then compare that with doing nothing.</p></div><div class="br-step-mini"><span class="br-dot"></span><p>Open the new analytics page in the StackingDAO app. Write down the current stBTC yield, total BTC deposited and the latest weekly payout.</p></div><div class="br-step-mini"><span class="br-dot"></span><p>Find where you choose BTC or sBTC for reward payouts. Decide which you would pick and why.</p></div></div><div class="br-toolbar"><a class="br-jump-btn" target="_blank" rel="noopener" href="https://www.stackingdao.com/">Open StackingDAO ↗</a><a class="br-jump-btn br-back" target="_blank" rel="noopener" href="https://docs.stackingdao.com/stackingdao/the-stacking-dao-app/frequently-asked-questions">StackingDAO Docs FAQ ↗</a></div><div class="br-callout"><span class="br-tag">Instructor Note</span><p>Ask: "If a receipt token is worth 1% less than the thing it claims to represent, is that a bug or a feature?" It is the market telling you how much people value getting out now.</p></div>
       <div class="br-p2q" data-sec="stdao"></div>
     </div>
   </section>
@@ -7568,8 +7675,8 @@ renderQ3();
 <h4>The other names you will see</h4>
 <table class="br-p2t">
 <tr><th>Project</th><th>What it does</th><th>The thing to check</th></tr>
-<tr><td><b>Zest</b></td><td>Lending and borrowing with BTC or sBTC as collateral. People also use it for loops, such as borrowing STX against BTC and stacking it</td><td>Borrowing a volatile asset against another volatile asset</td></tr>
-<tr><td><b>Bitflow</b></td><td>Swaps and liquidity pools on Stacks</td><td>Pool depth and impermanent loss, as in Day 1</td></tr>
+<tr><td><b>Zest</b></td><td>Lending and borrowing with BTC, sBTC, STX or stBTC as collateral. You can borrow stablecoins such as USDC or USDCx. People also use it for loops, such as borrowing STX against BTC and stacking it. Part of the Stacks BTC incentive program (below)</td><td>Borrowing a volatile asset against another volatile asset</td></tr>
+<tr><td><b>Bitflow</b></td><td>Swaps and liquidity pools on Stacks, including sBTC/USDCx and STX/USDCx. Part of the Stacks BTC incentive program (below)</td><td>Pool depth, staying in range, and impermanent loss, as in Day 1</td></tr>
 <tr><td><b>Hermetica</b></td><td>Yield products, including vaults that others build on</td><td>What strategy actually produces the yield</td></tr>
 <tr><td><b>Granite</b></td><td>Another lending market in the ecosystem</td><td>Collateral types and liquidation rules</td></tr>
 </table>
@@ -7583,6 +7690,28 @@ renderQ3();
 <tr><td>STX +50% and BTC −20%</td><td>$16,000</td><td>$12,000</td><td>12,800 ÷ 12,000 = <b>1.07</b></td></tr>
 </table>
 <p>Notice what hurt you: STX <b>going up</b>. You owe STX, so a rising STX makes your debt larger. And your collateral can fall at the same time. A loop that starts "comfortable" at 2.0 is almost at the line after two ordinary crypto moves. This is exactly why Day 1 teaches two alert lines.</p>
+
+
+<h4>The Stacks 90-day DeFi incentive program</h4>
+<p>On <b>August 12, 2026</b>, Stacks announced a <b>90-day program paying 1 BTC per month</b> (more than $180,000 at the time) to people who use two apps: <b>Zest</b> and <b>Bitflow</b>. Payouts began at Bitcoin block <b>966,350, around September 10</b>, so the program runs to about <b>early December 2026</b>. Rewards are paid <b>in Bitcoin</b>, monthly, and split <b>pro rata</b> (by your share) across everyone who qualifies. Results are checked against <b>daily onchain snapshots</b>.</p>
+<table class="br-p2t">
+<tr><th>App</th><th>BTC per month</th><th>What qualifies</th><th>Plain version</th></tr>
+<tr><td><b>Zest</b></td><td>0.50 BTC</td><td><b>USDCx</b> loans backed by <b>sBTC or STX</b> collateral, with a <b>time-weighted loan-to-value of at least 20%</b></td><td>You have to actually borrow USDCx and keep the loan open. Just depositing collateral does not count</td></tr>
+<tr><td><b>Bitflow</b></td><td>0.50 BTC</td><td>Liquidity in the <b>sBTC/USDCx</b> and <b>STX/USDCx</b> pools that is <b>active and in range</b></td><td>Your liquidity must be inside the current price range and earning trading fees. Out-of-range liquidity does not count</td></tr>
+</table>
+<div class="br-callout"><span class="br-tag">The key detail</span><p>The <b>full 1 BTC is paid every month no matter how many people take part</b>. That means your reward depends on your <b>share</b>. If few people qualify, each gets more. If many pile in, each gets less. Zest and Bitflow publish the full eligibility rules, including which positions are excluded. Read them before you open a position for the reward.</p></div>
+
+<h4>Worked example: your pro-rata share</h4>
+<p><b>Bitflow.</b> Say eligible in-range liquidity across the two pools is <b>$4,000,000</b> and you supply <b>$4,000</b> in range for the whole month. Your share is 4,000 ÷ 4,000,000 = <b>0.1%</b>. The Bitflow side pays 0.5 BTC, so you get 0.5 × 0.001 = <b>0.0005 BTC</b>, about <b>$37</b> at $74,000. That is about 0.9% for the month, or near 11% a year if it lasted, on top of trading fees. But if your range goes out of range for half the month, you only earn for the half that counted, and you still carry impermanent loss from Day 1.</p>
+<p><b>Zest.</b> Say you deposit <b>$10,000</b> of sBTC and borrow <b>$2,500</b> of USDCx (25% LTV, above the 20% minimum). If eligible borrowing across Zest is <b>$5,000,000</b>, your share is 0.05%, so 0.5 × 0.0005 = <b>0.00025 BTC</b> a month, about <b>$18.50</b>. Compare that with the interest you pay on the $2,500 loan. If borrowing costs 8% a year, that is about <b>$16.70 a month</b>. The reward barely covers the interest, and you are taking liquidation risk to earn it. <b>Always net the reward against the cost.</b></p>
+<table class="br-p2t">
+<tr><th>Question</th><th>Zest borrower</th><th>Bitflow LP</th></tr>
+<tr><td>What must I do?</td><td>Borrow USDCx at 20%+ LTV against sBTC or STX</td><td>Keep liquidity in range in sBTC/USDCx or STX/USDCx</td></tr>
+<tr><td>Main risk</td><td>Liquidation if sBTC or STX falls</td><td>Impermanent loss and going out of range</td></tr>
+<tr><td>Hidden cost</td><td>Interest on the loan</td><td>Gas and time spent rebalancing</td></tr>
+<tr><td>When it ends</td><td colspan="2">About 90 days after Sept 10. Check whether it is extended. Don't keep a risky position open just for a reward that has stopped</td></tr>
+</table>
+<div class="br-callout br-case"><span class="br-tag">Watch out</span><p>Incentives are designed to <b>pull money into the apps</b>. They are a real payment, but they end. Ask: <b>would I hold this position if the reward were zero?</b> If not, size it so that losing the reward, and some of the principal, would not hurt.</p></div>
 
 <h4>Due-diligence checklist for any Bitcoin DeFi app</h4>
 <ol>
@@ -7711,6 +7840,7 @@ renderQ3();
  <li>Redo the calculator for a BTC amount you might actually use, with STX at −50%, 0% and +50%. Bring the three results.</li>
  <li>Fill in the seven-question checklist for one Stacks app and bring it.</li>
  <li>Draw your own risk ladder for a Bitcoin position you might take.</li>
+ <li>Write a one-page Multisig Vault plan for your family, business or nonprofit: M-of-N, key holders, where each key is stored, and the recovery plan.</li>
 </ul>
 
     </div>
@@ -7729,6 +7859,8 @@ renderQ3();
         <div class="br-step-mini"><span class="br-dot"></span><p><b>Xverse.</b> Find the staking flow and list every thing it asks you to trust or decide before the confirm button.</p></div>
         <div class="br-step-mini"><span class="br-dot"></span><p><b>StackingDAO.</b> List the products, the fee and the audit. Say which of the three paths you would pick and why.</p></div>
         <div class="br-step-mini"><span class="br-dot"></span><p><b>Apps.</b> Run the seven-question checklist on one more Stacks app and mark what you could not find.</p></div>
+        <div class="br-step-mini"><span class="br-dot"></span><p><b>Multisig.</b> Design a vault for a family, an LLC or a nonprofit. Pick M-of-N, name who holds each key, and write two sentences on what happens if a key is lost.</p></div>
+        <div class="br-step-mini"><span class="br-dot"></span><p><b>Incentives.</b> Using the worked example, estimate the monthly BTC reward for $2,000 in a Bitflow pool, then subtract one realistic cost. Is it still worth it?</p></div>
       </div>
 
       <h4>Discussion Questions</h4>
@@ -7738,6 +7870,8 @@ renderQ3();
         <li>A bond pays about 1.44% in BTC, but STX falls 50% during the term. Was the bond a mistake, or just a risk that showed up? What would you change next time?</li>
         <li>A liquid staking token slips 3% below the value it represents during a panic. Is that the system failing, or working? What would you do?</li>
         <li>Would you ever borrow STX against sBTC to stack it? What numbers would make you say no?</li>
+        <li>Your family wants a multisig vault. Should a non-family advisor hold one of the keys? What are the pros and cons?</li>
+        <li>An incentive program pays a fixed 1 BTC a month to everyone who qualifies. Why might the reward per person shrink over time, and what does that tell you about chasing it late?</li>
       </ul>
 
     </div>
@@ -7773,6 +7907,16 @@ renderQ3();
         <div><dt>stSTX / stSTXbtc</dt><dd>StackingDAO's liquid STX tokens. stSTX compounds in STX, and stSTXbtc earns BTC.</dd></div>
         <div><dt>Depeg</dt><dd>When a token trades away from the value it is meant to track.</dd></div>
         <div><dt>Multisig</dt><dd>A wallet that needs M-of-N signatures (such as 2-of-3) to move funds. Xverse supports up to 20 co-owners.</dd></div>
+        <div><dt>Multisig Vault (Xverse)</dt><dd>Xverse's shared vault, launched on its extension Nov 16, 2026. Up to 20 co-owners. Holds Bitcoin, Stacks and Starknet assets in one place.</dd></div>
+        <div><dt>M-of-N / Threshold</dt><dd>N is how many co-owners or keys exist. M is how many must approve a transaction.</dd></div>
+        <div><dt>Co-owner</dt><dd>A person (or key) in a multisig vault whose approval can count toward the threshold.</dd></div>
+        <div><dt>Key Rotation</dt><dd>Moving funds to a new vault with fresh keys after a key is lost, stolen or a co-owner leaves.</dd></div>
+        <div><dt>Single-sig</dt><dd>A normal wallet with one key. Whoever has that key has full control.</dd></div>
+        <div><dt>USDCx</dt><dd>A USDC stablecoin on Stacks. Used in the Zest and Bitflow incentive program.</dd></div>
+        <div><dt>Pro Rata</dt><dd>Split in proportion to each person's share. If you are 1% of eligible positions, you get 1% of the reward.</dd></div>
+        <div><dt>In-Range Liquidity</dt><dd>Concentrated liquidity whose price range includes the current price, so it is earning trading fees.</dd></div>
+        <div><dt>Time-Weighted LTV</dt><dd>Your loan-to-value averaged over time. Zest's incentive requires at least 20%.</dd></div>
+        <div><dt>Incentive Program</dt><dd>Extra rewards paid for a set period to attract users to an app. They end, so judge the position without them too.</dd></div>
         <div><dt>Lightning</dt><dd>Bitcoin's payment layer for fast, low-fee payments.</dd></div>
         <div><dt>Perps (Perpetual Futures)</dt><dd>Leveraged contracts with no expiry for betting on price going up (long) or down (short). They can be liquidated.</dd></div>
         <div><dt>TVL</dt><dd>Total value locked: how much money is deposited in a protocol.</dd></div>
@@ -7784,7 +7928,7 @@ renderQ3();
   <section class="br-block" id="br-s-final">
     <div class="br-wrap">
       <span class="br-eyebrow">12 — Final Exam</span>
-      <h2>Ten questions. Seventy percent to pass.</h2>
+      <h2>Fourteen questions. Seventy percent to pass.</h2>
       <p>You need <b>70% or better</b> on the final exam, and all eight section quizzes finished, to earn your certificate. Full credit for a first-try answer, half for a second try, none after that. You can retake the exam for a new grade.</p>
       <div class="br-p2q" data-sec="final"></div>
     </div>
@@ -9540,9 +9684,13 @@ var PASS=70;
 var DESK='https://degendesk.blockwallstreet.biz/';
 var QZ={"welcome": [{"q": "Where does the yield in Stacks Bitcoin Staking come from?", "o": ["Lending your BTC to borrowers", "BTC that Stacks miners spend to produce blocks", "Newly printed BTC", "Exchange trading fees"], "a": 1, "why": "Proof of Transfer: miners commit BTC to win blocks, and that BTC is routed to people who lock assets. It is not lending, leverage or re-lending."}, {"q": "What is the difference between Stacking (with a \"c\") and Bitcoin Staking?", "o": ["There is none", "Stacking locks STX to earn BTC; Bitcoin Staking locks BTC or sBTC plus a small amount of STX in a bond", "Stacking is for BTC and staking is for STX", "Stacking is only on exchanges"], "a": 1, "why": "Stacking is the original PoX model for STX holders. Bitcoin Staking is the 2026 model that lets BTC holders earn the same miner BTC."}, {"q": "How do Xverse and StackingDAO relate?", "o": ["They are the same company", "Two doors into the same system: Xverse puts you directly into a bond, StackingDAO pools deposits and gives you a liquid token", "Xverse is a miner and StackingDAO is an exchange", "They are competing blockchains"], "a": 1, "why": "Xverse is a self-custody wallet with a direct staking flow. StackingDAO is a liquid staking protocol that does the bonding for you."}], "stacks": [{"q": "What is the relationship between Stacks and Bitcoin?", "o": ["Stacks is another name for Bitcoin", "Stacks is a separate network that settles to Bitcoin", "Stacks runs inside Bitcoin's blocks", "Stacks is a Bitcoin wallet"], "a": 1, "why": "Stacks has its own token, apps and contracts, and its activity settles to Bitcoin."}, {"q": "In Proof of Transfer, what happens to the BTC that Stacks miners spend?", "o": ["It is burned", "It goes to the Stacks team", "It is sent to people who stack STX", "It is returned to the miners"], "a": 2, "why": "Miners bid BTC and that BTC goes to stackers."}, {"q": "What can you NOT do with STX while it is locked in a stacking cycle?", "o": ["Earn BTC rewards", "Spend or sell it", "Hold it", "See it in your wallet"], "a": 1, "why": "Locked STX cannot be sold or spent until the cycle ends."}, {"q": "You lock STX and the reward works out to 0.31% for the cycle. STX falls 10%. What is the lesson?", "o": ["Stacking removes price risk", "The reward was small next to the price swing", "STX will recover", "Cycles refund losses"], "a": 1, "why": "Stacking pays you something to hold through price risk. It does not remove it."}], "sbtc": [{"q": "How is sBTC meant to work?", "o": ["Bitcoin is burned and sBTC created", "BTC is deposited to signers and the same amount of sBTC is created on Stacks", "A company lends you sBTC", "It is mined"], "a": 1, "why": "You deposit BTC, sBTC is minted 1:1 after confirmation, and redeeming burns it for real BTC."}, {"q": "Who holds the BTC behind sBTC?", "o": ["One custodian", "Nobody", "A threshold set of signers", "The Bitcoin Foundation"], "a": 2, "why": "A set share of signers must agree to move the funds."}, {"q": "Signers secure 1,000 BTC and have locked STX worth 2,000 BTC. STX falls 50%. What is the cushion now?", "o": ["200%", "150%", "100%", "50%"], "a": 2, "why": "The locked STX is now worth 1,000 BTC, a 100% cushion."}, {"q": "Which is a real trust assumption of sBTC?", "o": ["That Bitcoin has a 21M cap", "That enough signers do not collude or get compromised", "That your wallet has a password", "That Stacks has no fees"], "a": 1, "why": "Signer collusion or compromise is a core trust assumption, along with STX price and a young system."}, {"q": "What should you do before moving a large amount into a new bridge or token?", "o": ["Deposit everything", "Test a small amount, including a full withdrawal", "Wait for a price rise", "Ask on social media"], "a": 1, "why": "A deposit that works says nothing about the exit. Test both."}], "bonds": [{"q": "About how long is a protocol bond?", "o": ["1 week", "30 days", "About 6 months (25,200 Bitcoin blocks)", "2 years"], "a": 2, "why": "25,200 Bitcoin blocks is roughly six months."}, {"q": "How much STX does a direct protocol bond require?", "o": ["None", "About 5% of the BTC position's value", "50%", "An amount equal to your BTC"], "a": 1, "why": "The STX requirement is about 5% of the value of your BTC position."}, {"q": "What does the 5% STX earn?", "o": ["The whole yield", "Nothing on its own: it is the ticket in, and all the yield goes to the BTC side", "A guaranteed 3%", "Slashing protection"], "a": 1, "why": "The STX establishes eligibility and ties your position to a Stacks identity. It is not collateral and it does not earn."}, {"q": "Who is paid first in the reward waterfall?", "o": ["STX-only stakers", "The reserve fund", "Protocol bond holders", "Miners"], "a": 2, "why": "Bond holders are senior. The excess is split 85% to STX-only stakers and 15% to the reserve."}, {"q": "You pull your BTC out of a bond after it has started. What happens?", "o": ["You are slashed", "You forfeit the remaining yield, and your STX stays locked for the full term", "Nothing changes", "Your STX is returned immediately"], "a": 1, "why": "Before the start you can withdraw with no penalty. After it starts, the BTC can leave but the remaining yield is forfeited and STX stays locked."}], "xverse": [{"q": "What does Xverse's staking flow do in one transaction?", "o": ["Sells your BTC", "Deposits both sBTC and STX into the pool contract", "Mints an NFT", "Opens a leveraged position"], "a": 1, "why": "One transaction deposits both assets. If you are short on STX you can buy the missing amount inside the flow."}, {"q": "How are Xverse sBTC staking rewards delivered?", "o": ["You must press a claim button every day", "Automatically to your reward address, paid in sBTC", "As STX", "Only when the bond ends"], "a": 1, "why": "There is no claim button. Rewards are sent automatically, paid in sBTC, about once per reward cycle."}, {"q": "What did Xverse add to its extension on Nov 16, 2026?", "o": ["NFT minting", "Multisig with up to 20 co-owners", "A credit card", "Solana support"], "a": 1, "why": "Joint Bitcoin accounts where nothing moves until enough co-owners approve, such as 2-of-3 or 3-of-5."}, {"q": "Why should you keep Xverse's perps separate from your staking stack?", "o": ["They are free", "Perps use leverage and can be liquidated, so they are a trading tool, not a savings tool", "They pay BTC yield", "They are required for bonds"], "a": 1, "why": "Leverage can wipe out a position. Perps are separate from staking."}], "stdao": [{"q": "What is liquid staking?", "o": ["Selling your STX", "Staking in exchange for a receipt token you can keep using", "A type of loan", "A swap fee"], "a": 1, "why": "You stack through the protocol and receive a token such as stSTX that you can use in DeFi."}, {"q": "A liquid staking protocol earns you 8% before fees and takes 10% of rewards on $10,000. What do you net?", "o": ["$800", "$720", "$640", "$80"], "a": 1, "why": "8% of $10,000 is $800. 10% of that is $80. You keep $720, or 7.2%."}, {"q": "In a panic, stSTX trades 3% below the value of the STX behind it. This is called…", "o": ["A depeg", "A cycle", "A burn", "A fork"], "a": 0, "why": "A receipt token trading away from its backing value is a depeg."}, {"q": "What new risk comes from using stSTX as collateral for a loan?", "o": ["None", "A falling stSTX price can push your health factor toward liquidation", "Higher fees only", "Rewards stop"], "a": 1, "why": "Day 1's health factor logic applies: collateral falling brings liquidation closer."}, {"q": "Why compare yields AFTER fees rather than headline APYs?", "o": ["Fees never matter", "Fee cuts change what you actually keep", "Headline APYs are always wrong", "Fees are refunded"], "a": 1, "why": "A 20% cut on 8% leaves 6.4%; a 10% cut leaves 7.2%."}, {"q": "How does stBTC handle the 5% STX requirement?", "o": ["You must buy it yourself", "StackingDAO supplies it, so depositors need no STX", "It is waived", "It is paid in USDC"], "a": 1, "why": "StackingDAO said stBTC needs no STX from the depositor. That is the main convenience difference from going direct."}], "alex": [{"q": "You hold $20,000 of sBTC at an 80% threshold and borrow $8,000 of STX. What is the health factor?", "o": ["1.0", "1.6", "2.0", "2.5"], "a": 2, "why": "(20,000 × 0.80) ÷ 8,000 = 2.0."}, {"q": "After STX rises 50% (debt now $12,000) and BTC falls 20% (collateral $16,000), what is the health factor?", "o": ["2.0", "1.33", "1.07", "0.8"], "a": 2, "why": "(16,000 × 0.80) ÷ 12,000 = 12,800 ÷ 12,000 ≈ 1.07."}, {"q": "Why did a rising STX price hurt the borrower in that example?", "o": ["Fees went up", "They owed STX, so the debt grew", "Rewards stopped", "The collateral locked"], "a": 1, "why": "When you borrow an asset, its price rising makes your debt bigger."}, {"q": "Which due-diligence question matters most when an app advertises a very high yield?", "o": ["What color is the logo?", "Where does the yield come from?", "How many followers does it have?", "Is it on mobile?"], "a": 1, "why": "If you can't name the source, the yield may come from other depositors, including you."}, {"q": "What does a code audit do?", "o": ["Proves a project is safe", "Lowers risk but does not prove safety", "Guarantees your deposit", "Sets the yield"], "a": 1, "why": "Audits find some bugs. They never prove there are none."}], "paths": [{"q": "On 1 BTC at a 3% target, about how much BTC does one ~6-month bond earn?", "o": ["0.03 BTC", "About 0.0144 BTC", "0.0479 BTC", "0.00144 BTC"], "a": 1, "why": "3% × 0.479 years ≈ 1.44%, so about 0.0144 BTC."}, {"q": "STX is 5% of your position and falls 50% during the bond. What does that cost, roughly?", "o": ["Nothing", "About 2.5% of the BTC position's value, more than the ~1.44% earned", "0.5%", "50% of the BTC"], "a": 1, "why": "5% × 50% = 2.5%. That is larger than one bond's ~1.44% yield, so the net is negative in USD."}, {"q": "Which path avoids STX price exposure and gives you a liquid token?", "o": ["Native BTC bond", "Xverse sBTC pool", "StackingDAO stBTC", "All of them"], "a": 2, "why": "StackingDAO handles the 5% STX for stBTC depositors, and stBTC is a token you can still use."}, {"q": "Why does stBTC show about 2.3–2.4% instead of the ~3% direct target?", "o": ["It is a different asset", "Fees, the cost of supplying the STX, and liquidity kept unlocked for redemptions", "STX is worth more", "It is a mistake"], "a": 1, "why": "You give up some yield in exchange for no STX exposure, no lock on your side and a usable token."}, {"q": "Which path asks for the least trust?", "o": ["StackingDAO stBTC", "Xverse sBTC pool", "Native BTC bond (timelocked on Bitcoin)", "They are all the same"], "a": 2, "why": "Native BTC on Bitcoin with a timelock relies on Bitcoin consensus plus Stacks contracts only. sBTC adds signers, and stBTC adds the protocol."}]};
 QZ.final=[{"q": "In Proof of Transfer, who ends up with the BTC that Stacks miners spend?", "o": ["The miners", "The Bitcoin network", "Stackers who lock STX", "Exchanges"], "a": 2, "why": "Miners bid BTC, and it is paid to stackers."}, {"q": "Which is the best description of sBTC's main risk?", "o": ["There is none, it is Bitcoin", "It depends on the signer set, the STX price behind it and a young system", "It cannot be redeemed", "It is not on Stacks"], "a": 1, "why": "Signers, STX price and maturity are the trust assumptions. It is a token redeemable for Bitcoin, not Bitcoin itself."}, {"q": "You deposit $10,000 of STX into a liquid staking protocol that earns 8% gross and takes 10% of rewards. What do you net in a year?", "o": ["$800", "$760", "$720", "$680"], "a": 2, "why": "$800 − $80 = $720."}, {"q": "$30,000 of sBTC collateral, 80% threshold, $12,000 of STX debt. What is the health factor?", "o": ["1.5", "2.0", "2.5", "3.0"], "a": 1, "why": "(30,000 × 0.80) ÷ 12,000 = 2.0."}, {"q": "Using the same position, STX rises 100% (debt now $24,000) and collateral is unchanged. What is the health factor?", "o": ["2.0", "1.5", "1.0", "0.5"], "a": 2, "why": "(30,000 × 0.80) ÷ 24,000 = 1.0, the liquidation line."}, {"q": "What is the right way to approach a new Bitcoin DeFi app?", "o": ["Follow the highest APY", "Run the due-diligence checklist and test with a small amount, including a full withdrawal", "Deposit everything once it has an audit", "Wait for a friend to try it"], "a": 1, "why": "Know who built it, the audit, the source of yield, the exit and the worst case, then test small."}, {"q": "About how much STX does a direct protocol bond require, and how long does it run?", "o": ["None, one week", "About 5% of the BTC value, about six months", "50%, two years", "Equal to your BTC, one month"], "a": 1, "why": "Roughly 5% STX against the BTC position, for about 25,200 Bitcoin blocks (about six months)."}, {"q": "Which path means you do not need to hold STX yourself?", "o": ["A native BTC bond", "The Xverse sBTC pool", "StackingDAO stBTC", "All of them need STX"], "a": 2, "why": "With stBTC, StackingDAO handles the STX requirement."}, {"q": "You exit a bond early after it has started. What happens to your STX?", "o": ["It is returned right away", "It stays locked for the full term", "It is slashed", "It converts to BTC"], "a": 1, "why": "BTC or sBTC can leave early (forfeiting remaining yield), but STX stays locked."}, {"q": "Who is paid first when miner BTC comes in?", "o": ["STX-only stakers", "The reserve fund", "Protocol bond holders (senior)", "Miners"], "a": 2, "why": "Bond holders come first. The excess is split 85% to STX-only stakers and 15% to the reserve."}];
+QZ.xverse=QZ.xverse.concat([{"q": "In a 2-of-3 Xverse Multisig Vault, what happens if one co-owner loses their key?", "o": ["The funds are lost forever", "The other two co-owners can still approve and move the funds", "Xverse resets the vault for you", "Any one remaining co-owner can now spend alone"], "a": 1, "why": "2-of-3 needs any two keys. With one lost, two remain, so the group can still move funds. They should then rotate to a new vault."}, {"q": "What did Xverse's Multisig Vault launch with on Nov 16, 2026?", "o": ["Up to 3 co-owners, Bitcoin only", "Up to 20 co-owners, holding Bitcoin, Stacks and Starknet assets in one vault", "Unlimited co-owners on mobile only", "A custodial account run by Xverse"], "a": 1, "why": "Xverse launched Multisig on its extension with up to 20 co-owners, and one vault holds Bitcoin, Stacks and Starknet assets."}, {"q": "Why is a 2-of-2 multisig usually a bad idea?", "o": ["It is too slow", "With no spare key, one lost seed locks the funds forever", "It costs more fees than 2-of-3", "Thieves only need one key"], "a": 1, "why": "N minus M should be at least 1. A 2-of-2 has no room for a lost key."}]);
+QZ.stdao=QZ.stdao.concat([{"q": "What changed about stBTC deposits in StackingDAO's November 3 recap?", "o": ["Deposits closed until the next bond", "stBTC is permanently open for deposits, so you don't wait for a bond window", "You now need 10% STX", "Deposits require KYC"], "a": 1, "why": "stBTC is now always open, and StackingDAO handles getting deposits into bonds."}, {"q": "How are stBTC BTC rewards paid after the November upgrade?", "o": ["You must claim them every cycle", "Straight to your Bitcoin wallet with no claim step, with the option to switch to sBTC on Stacks", "Only in STX", "Only when you redeem"], "a": 1, "why": "Rewards go straight to your Bitcoin wallet, and you can switch to sBTC payouts at any time."}]);
+QZ.alex=QZ.alex.concat([{"q": "In the Stacks 90-day DeFi incentive program, what qualifies for Zest's share?", "o": ["Simply depositing sBTC", "USDCx loans backed by sBTC or STX with a time-weighted LTV of at least 20%", "Holding ALEX tokens", "Any STX stacking"], "a": 1, "why": "Zest's 0.5 BTC a month goes to USDCx borrowers using sBTC or STX collateral who keep at least a 20% time-weighted LTV."}, {"q": "The program pays a fixed 1 BTC a month split pro rata. What happens to your reward if many more people join?", "o": ["It stays the same", "It grows", "Your share, and so your reward, shrinks", "The program pays more BTC"], "a": 2, "why": "The total is fixed, so more participants means a smaller share for each."}]);
+QZ.final=QZ.final.concat([{"q": "A nonprofit board of five wants no single member able to move funds, and wants to survive two lost keys. Which setup fits?", "o": ["1-of-5", "2-of-2", "3-of-5", "5-of-5"], "a": 2, "why": "3-of-5 needs three approvals and still works if two keys are lost."}, {"q": "Bond 2 had about 505 BTC enrolled and paid about 1.21 BTC in its first 30 days. Roughly what yearly rate is that?", "o": ["About 0.3%", "About 3%", "About 12%", "About 24%"], "a": 1, "why": "1.21 ÷ 505 ≈ 0.24% a month, times about 12 ≈ 2.9% a year."}, {"q": "Which pools qualify for Bitflow's share of the Stacks BTC incentives?", "o": ["Any pool on ALEX", "sBTC/USDCx and STX/USDCx, with liquidity active and in range", "stBTC/STX only", "Any out-of-range position"], "a": 1, "why": "Bitflow's 0.5 BTC a month goes to in-range liquidity in sBTC/USDCx and STX/USDCx."}, {"q": "You borrow USDC against stBTC on Zest. Which change raises your liquidation risk the most?", "o": ["Borrowing 20% instead of 50% of the collateral value", "BTC falling and stBTC trading below its backing at the same time", "Switching rewards to sBTC", "Depositing more stBTC"], "a": 1, "why": "Your collateral value falls from both the BTC price and any stBTC discount, cutting the health factor."}]);
 var LABELS={"welcome": "Welcome & Big Picture", "stacks": "Stacks & Proof of Transfer", "sbtc": "sBTC", "bonds": "Bitcoin Staking & Protocol Bonds", "xverse": "Xverse", "stdao": "StackingDAO & Liquid Staking", "alex": "ALEX & Stacks Apps", "paths": "Three Paths & the Calculator"}; LABELS.final="Final Exam";
 var ORDER=["welcome", "stacks", "sbtc", "bonds", "xverse", "stdao", "alex", "paths", "final"];
-var KEY='bws_bc2_day3_v1', S={}, P={name:'',email:'',sent:''};
+var KEY='bws_bc2_day3_v2', S={}, P={name:'',email:'',sent:''};
 
 function fresh(id){return QZ[id].map(function(){return{att:0,done:false,wrong:[]}})}
 function load(){ try{var d=JSON.parse(localStorage.getItem(KEY)||'{}');S=d.S||{};P=Object.assign(P,d.P||{})}catch(e){}
